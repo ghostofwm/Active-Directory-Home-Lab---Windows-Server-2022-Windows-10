@@ -123,15 +123,25 @@ Log in using rmanning
 Step 8. Apply Group Policy (GPO)
 
 On DC1, Open Server Manager and go to Tools. Select Group Policy Management.
+
 Click on "Forest: mydomain.local" in the left panel. Click on "Domains". 
+
 This should drop down "mydomain.local" Click on this. Then Right click on it and select "Create a GPO in this domain, and Link it here..."
+
 Name this GPO "PasswordPolicy"
+
 Go to "Linked Group Policy Objects" and you'll see your new GPO. Right click on it and select Edit.
+
 Click Computer Configuration, Policies, Windows Settings, Security Settings, Account Policies, Password Policy.
+
 Click on "Minimum password length", check the box for "Define this policy setting"
+
 Configure the Minimum password length to be 10. Click apply
+
 Configure the Maximum password age to be 60 days.
+
 This will ask you to define the Minimum password age to 30 days. Apply it.
+
 Enable "Password must meet complexity requirements"
 
 Go to CL1. Press Win + R and type "gpupdate /force"
@@ -139,30 +149,45 @@ Go to CL1. Press Win + R and type "gpupdate /force"
 Step 9. Unmount the DC1 ISO (For File Sharing)
 
 Power off DC1
+
 Open Virtual Box on you host machine and go to DC1.
+
 Open Settings, Go to storage.
+
 Under "Controller: SATA", click on your ISO image. It will be something like this "SERVER_EVAL_x64FRE_en-us.iso"
-On the right, next to "Optical Drive", click the small disk. Select "Remove disk from virtual drive". Click Ok.
+
+On the right, next to "Optical Drive", click the small disk. Select "Remove disk from virtual drive".
+Click Ok.
+
 Start up DC1.
 
 Step 10. Turn on Network Discovery and File Sharing
 On DC1 & CL1:
 
 Go to File Explorer, click Network. 
+
 You should receive an error, click Ok. It'll then display a message at the top "Network discovery is turned off. Network computers and devices are not visible. Click to change..."
+
 Select "Click to change", "Turn on network discovery and file sharing"
+
 Select "No, make the network that I am connected to a private network"
 
 Step 11. Create a Shared Folder with Permissions
 
 On DC1, Open File Explorer
+
 Click "This PC", then click "Local Disk (C:)"
-Right click in the blank area under the folders.  
+
+Right click in the blank area under the folders. 
+
 Select New, Folder, Name it "Shared"
 
 Right click on your new folder. Select Properties. Go to Sharing, Advanced Sharing.
+
 In "Share Name", type "SharedDocs".
+
 Select Permissions. Select Add. Type in "Domain Users". Click Ok.
+
 In the "Permissions for Everyone" box, Check the "Read" and "Change" boxes. (Read/Write Permissions)
 
 On CL1, Press Win + R
