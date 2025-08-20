@@ -13,7 +13,7 @@ Host with ≥ 8 GB RAM and ≥ 100 GB free disk.
 
 Full Step-by-Step
 
-Step 1. Set Up Virtual Machines
+## Step 1. Set Up Virtual Machines
 
 Create two VMs in VirtualBox:
 
@@ -29,7 +29,10 @@ Once both are created, Go to settings, go to Network and select "Internal Networ
 
 Make sure they're both assigned to the same Internal Network!(Labnet)
 
-Step 2. Start up Virtual Machines
+(Screenshots/Step1-CL1.png) 
+
+
+## Step 2. Start up Virtual Machines
 DC1:
 
 After starting DC1, you will have to choose the operating system you want to install. 
@@ -51,7 +54,7 @@ Click next.
 
 Select "I don't have internet" when it asks and continue with "Limited Access"
 
-Step 3. Configure Static IPs
+## Step 3. Configure Static IPs
 
 DC1:
 
@@ -77,7 +80,7 @@ Same Subnet mask and Same Preferred DNS as DC1
 
 Default Gateway stays blank
 
-Step 4. Rename PCs
+## Step 4. Rename PCs
 
 DC1 & CL1:
 
@@ -85,7 +88,7 @@ Right click windows logo at bottom left of home screen. Select "System". Click "
 
 Both machines will restart
 
-Step 5. Install Active Directory Domain Services on DC1
+## Step 5. Install Active Directory Domain Services on DC1
 
 Open Server Manager (Opens automatically on machine start up)
 
@@ -124,7 +127,7 @@ Review options: Click next
 
 Prerequisites Check: Click Install
 
-Step 6. Create Organizational Units (OUs) & Users
+## Step 6. Create Organizational Units (OUs) & Users
 
 Open Server Manager. Go to "Tools", Select "Active Directory Users and Computers"
 
@@ -154,7 +157,7 @@ Click Add and type Domain Admins
 
 Click Apply
 
-Step 7. Join CL1 to the Domain
+## Step 7. Join CL1 to the Domain
 
 On CL1, Right click the Windows logo on the taskbar again and click System (The same way we renamed the PCs)
 
@@ -170,7 +173,7 @@ After CL1 restarts, at the log in screen, select "Other User"
 
 Log in using rmanning
 
-Step 8. Apply Group Policy (GPO)
+## Step 8. Apply Group Policy (GPO)
 
 On DC1, Open Server Manager and go to Tools. Select Group Policy Management.
 
@@ -196,7 +199,7 @@ Enable "Password must meet complexity requirements"
 
 Go to CL1. Press Win + R and type "gpupdate /force"
 
-Step 9. Unmount the DC1 ISO (For File Sharing)
+## Step 9. Unmount the DC1 ISO (For File Sharing)
 
 Power off DC1
 
@@ -211,7 +214,7 @@ Click Ok.
 
 Start up DC1.
 
-Step 10. Turn on Network Discovery and File Sharing
+## Step 10. Turn on Network Discovery and File Sharing
 On DC1 & CL1:
 
 Go to File Explorer, click Network. 
@@ -222,7 +225,7 @@ Select "Click to change", "Turn on network discovery and file sharing"
 
 Select "No, make the network that I am connected to a private network"
 
-Step 11. Create a Shared Folder with Permissions
+## Step 11. Create a Shared Folder with Permissions
 
 On DC1, Open File Explorer
 
@@ -243,7 +246,7 @@ In the "Permissions for Everyone" box, Check the "Read" and "Change" boxes. (Rea
 On CL1, Press Win + R
 Type in "\\DC1\SharedDocs" and Click Ok. You should now be in the folder.
 
-Step 12. Enable Remote Desktop Access
+## Step 12. Enable Remote Desktop Access
 
 On DC1, Open Server Manager. On the left side, you'll see "Local Server". Click it.
 
