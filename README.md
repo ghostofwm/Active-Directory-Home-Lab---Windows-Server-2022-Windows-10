@@ -29,7 +29,7 @@ Once both are created, Go to settings, go to Network and select "Internal Networ
 
 Make sure they're both assigned to the same Internal Network!(Labnet)
 
-(Screenshots/Step1-CL1.png) 
+![CL1 Creation](Screenshots/Step1-CL1.png) 
 
 
 ## Step 2. Start up Virtual Machines
