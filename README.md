@@ -43,10 +43,16 @@ Step 3. Configure Static IPs
 DC1:
 
 Right click on the internet logo next to the volume on the task bar. (Should be a circular symbol)
+
 Select "Open Network & Internet settings", then "Change adapter options"
+
 Right click "Ethernet" and select "Properties"
+
 Select "Internet Protocol Version 4(TCP/IPv4)
-Click on "Use the following IP address" and enter "192.168.1.10" for the IP. "255.255.255.0" for the Subnet mask. Leave "Default Gateway" blank. Repeat IP address for "Preferred DNS"
+
+Click on "Use the following IP address" and enter "192.168.1.10" for the IP. "255.255.255.0" for the Subnet mask.
+
+Leave "Default Gateway" blank. Repeat IP address for "Preferred DNS"
 
 CL1:
 
