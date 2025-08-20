@@ -82,6 +82,10 @@ Same Subnet mask and Same Preferred DNS as DC1
 
 Default Gateway stays blank
 
+![CL1 Networking](Screenshot/Step3-CL1-Networking.png)
+
+![DC1 Networking](Screenshot/Step3-DC1-Networking.png)
+
 ## Step 4. Rename PCs
 
 DC1 & CL1:
@@ -159,6 +163,8 @@ Click Add and type Domain Admins
 
 Click Apply
 
+![User+OU](Screenshots/Step6-User.png)
+
 ## Step 7. Join CL1 to the Domain
 
 On CL1, Right click the Windows logo on the taskbar again and click System (The same way we renamed the PCs)
@@ -171,9 +177,13 @@ Under "Member of", Select "Domain". Here you will type "mydomain.local"
 
 For Username and Password, it will be Username: Administrator and Password: (Password you created at set up)
 
+![Joined Domain](Screenshots/Step7-Join.png)
+
 After CL1 restarts, at the log in screen, select "Other User"
 
 Log in using rmanning
+
+![Joined Login](Screenshots/Step7-JoinLogin.png)
 
 ## Step 8. Apply Group Policy (GPO)
 
@@ -201,6 +211,8 @@ Enable "Password must meet complexity requirements"
 
 Go to CL1. Press Win + R and type "gpupdate /force"
 
+![GPO](Screenshots/Step8-GPO.png)
+
 ## Step 9. Unmount the DC1 ISO (For File Sharing)
 
 Power off DC1
@@ -214,6 +226,8 @@ Under "Controller: SATA", click on your ISO image. It will be something like thi
 On the right, next to "Optical Drive", click the small disk. Select "Remove disk from virtual drive".
 Click Ok.
 
+![Unmount](Screenshots/Step9-Unmount.png)
+
 Start up DC1.
 
 ## Step 10. Turn on Network Discovery and File Sharing
@@ -226,6 +240,8 @@ You should receive an error, click Ok. It'll then display a message at the top "
 Select "Click to change", "Turn on network discovery and file sharing"
 
 Select "No, make the network that I am connected to a private network"
+
+![Network FileShare](Screenshots/Step10-NwFs.png)
 
 ## Step 11. Create a Shared Folder with Permissions
 
@@ -248,6 +264,10 @@ In the "Permissions for Everyone" box, Check the "Read" and "Change" boxes. (Rea
 On CL1, Press Win + R
 Type in "\\DC1\SharedDocs" and Click Ok. You should now be in the folder.
 
+![Sfp1](Screenshots/Step11-Shared.png)
+
+![Sfp2](Screenshots/Step11-Shared2.png)
+
 ## Step 12. Enable Remote Desktop Access
 
 On DC1, Open Server Manager. On the left side, you'll see "Local Server". Click it.
@@ -259,3 +279,5 @@ Click "Select Users", Click "Add", Type in "Domain Users"
 On CL1, Open the search bar on the taskbar. Type in "Remote Desktop Connection"
 In the "Computer:" Tab, type in "DC1"
 Enter password.
+
+![Remote Desktop](Screenshots/Step12-RD.png)
