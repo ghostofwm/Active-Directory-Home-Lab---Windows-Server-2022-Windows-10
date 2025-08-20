@@ -82,9 +82,9 @@ Same Subnet mask and Same Preferred DNS as DC1
 
 Default Gateway stays blank
 
-![CL1 Networking](Screenshot/Step3-CL1-Networking.png)
+![CL1 Networking](Screenshots/Step3-CL1-Networking.png)
 
-![DC1 Networking](Screenshot/Step3-DC1-Networking.png)
+![DC1 Networking](Screenshots/Step3-DC1-Networking.png)
 
 ## Step 4. Rename PCs
 
