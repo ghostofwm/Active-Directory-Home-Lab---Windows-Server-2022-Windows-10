@@ -2,28 +2,38 @@
 Hands-on Active Directory lab with Windows Server 2022 and Windows 10 Client. Configured AD DS, DNS, Group Policy, user management, shared folders, and Remote Desktop for IT support practice.
 
 Prerequisites:
+
 Oracle VirtualBox (latest).
+
 Windows Server 2022 ISO (Desktop Experience). https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022
+
 Windows 10 Pro ISO. https://www.microsoft.com/en-us/software-download/windows10
+
 Host with ≥ 8 GB RAM and ≥ 100 GB free disk.
 
 Full Step-by-Step
+
 Step 1. Set Up Virtual Machines
+
 Create two VMs in VirtualBox:
 
 DC1 (Domain Controller) - Windows Server 2022
+
 CL1 (Client) - Windows 10
 
 Check "Skip Unattended Installation" after creating name and selecting the ISO Image
+
 Give each VM enough RAM (4 GB minimum for DC1, 2 GB for CL1).
 
 Once both are created, Go to settings, go to Network and select "Internal Network" for both
+
 Make sure they're both assigned to the same Internal Network!(Labnet)
 
 Step 2. Start up Virtual Machines
 DC1:
 
 After starting DC1, you will have to choose the operating system you want to install. 
+
 Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
 
 Select "Custom: Install Windows Server Operating System only (advanced)"
@@ -32,8 +42,11 @@ Click Next.
 CL1:
 
 After starting CL1, you will be asked for a product key. Select "I don't have a product key"
+
 Select "Windows 10 Pro"
+
 Select "Custom: Install Windows only (advanced)"
+
 Click next.
 
 Select "I don't have internet" when it asks and continue with "Limited Access"
@@ -57,67 +70,104 @@ Leave "Default Gateway" blank. Repeat IP address for "Preferred DNS"
 CL1:
 
 Repeat same steps as above to get to network settings.
+
 Enter "192.168.1.20" for the IP address. 
+
 Same Subnet mask and Same Preferred DNS as DC1
+
 Default Gateway stays blank
 
 Step 4. Rename PCs
+
 DC1 & CL1:
+
 Right click windows logo at bottom left of home screen. Select "System". Click "Rename PC" (DC1 & CL1 for the names)
+
 Both machines will restart
 
 Step 5. Install Active Directory Domain Services on DC1
 
 Open Server Manager (Opens automatically on machine start up)
+
 Click on "2 Add roles and features"
 
 Before you begin: Click next.
+
 Installation type: "Role-based or feature-based installation" Click next
+
 Server Selection: Click next. (Auto selected)
+
 Server Roles: Select "Active Directory Domain Services". Click "Add Features" Click next
+
 Features: Click next
+
 AD DS: Click next
+
 Confirmation: Click Install
 
 After installation is complete, click close.
+
 Open Server Manager, next to "Manage" you'll see a flag with a yellow caution sign. Click that.
+
 Select "Promote this server to a domain controller"
 
 Deployment Configuration: Select "Add a new forest", in "Root domain name" type "mydomain.local"
+
 Domain Controller Options: Create a DRSM password
+
 DNS Options: Click next
+
 Additional Option: Click next
 Paths: Click next
+
 Review options: Click next
+
 Prerequisites Check: Click Install
 
 Step 6. Create Organizational Units (OUs) & Users
 
 Open Server Manager. Go to "Tools", Select "Active Directory Users and Computers"
+
 Right click on "mydomain.local" (You will see it twice. Right Click the one in the middle, not on the left panel)
+
 Select New, Organizational Unit, make the name "IT_Department"
+
 Click the dropdown for "mydomain.local" in the left panel. 
+
 Right click on IT_Department, click New, click User
+
 First name will be Ricky. Last name will be Manning. User logon name will be rmanning (First initial of first name, full last name)
+
 Click next
+
 Set password
+
 Uncheck "User must change password at next logon"
+
 Finish
 
 Right click on your new user Ricky Manning
+
 Select Properties then Member Of
+
 Click Add and type Domain Admins
+
 Click Apply
 
 Step 7. Join CL1 to the Domain
 
 On CL1, Right click the Windows logo on the taskbar again and click System (The same way we renamed the PCs)
+
 Scroll down to "Rename this PC (advanced)" and click it.
+
 Click "Change"
+
 Under "Member of", Select "Domain". Here you will type "mydomain.local"
+
 For Username and Password, it will be Username: Administrator and Password: (Password you created at set up)
 
 After CL1 restarts, at the log in screen, select "Other User"
+
 Log in using rmanning
 
 Step 8. Apply Group Policy (GPO)
@@ -196,7 +246,9 @@ Type in "\\DC1\SharedDocs" and Click Ok. You should now be in the folder.
 Step 12. Enable Remote Desktop Access
 
 On DC1, Open Server Manager. On the left side, you'll see "Local Server". Click it.
+
 "Remote Desktop" will be disabled. Click it. Select "Allow remote connections to this computer"
+
 Click "Select Users", Click "Add", Type in "Domain Users"
 
 On CL1, Open the search bar on the taskbar. Type in "Remote Desktop Connection"
