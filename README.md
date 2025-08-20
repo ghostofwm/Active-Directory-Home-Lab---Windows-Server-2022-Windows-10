@@ -1,6 +1,11 @@
 # Active Directory Home Lab-Windows Server 2022 Windows 10
 Hands-on Active Directory lab with Windows Server 2022 and Windows 10 Client. Configured AD DS, DNS, Group Policy, user management, shared folders, and Remote Desktop for IT support practice.
 
+
+## Overview
+This lab simulates a small corporate IT environment using VirtualBox. It covers the setup of a Windows Server 2022 domain controller and a Windows 10 client, with Active Directory, DNS, Group Policy, file sharing, and Remote Desktop.
+
+
 Prerequisites:
 
 Oracle VirtualBox (latest).
@@ -34,7 +39,7 @@ Make sure they're both assigned to the same Internal Network!(Labnet)
 ![DC1 Creation](Screenshots/Step1-DC1.png)
 
 
-## Step 2. Start up Virtual Machines
+## Step 2. Install Operating Systems
 DC1:
 
 After starting DC1, you will have to choose the operating system you want to install. 
@@ -281,3 +286,13 @@ In the "Computer:" Tab, type in "DC1"
 Enter password.
 
 ![Remote Desktop](Screenshots/Step12-RD.png)
+
+
+## Key Skills Practiced
+- Active Directory Domain Services (AD DS) setup and configuration
+- DNS and Group Policy Management
+- User and Organizational Unit (OU) administration
+- File sharing and NTFS permissions
+- Remote Desktop configuration and domain login
+- Virtual networking in VirtualBox
+
