@@ -31,6 +31,8 @@ Make sure they're both assigned to the same Internal Network!(Labnet)
 
 ![CL1 Creation](Screenshots/Step1-CL1.png) 
 
+![DC1 Creation](Screenshots/Step1-DC1.png)
+
 
 ## Step 2. Start up Virtual Machines
 DC1:
